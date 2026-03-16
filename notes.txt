@@ -1,0 +1,8 @@
+inicialmente, 4 telas
+Auth - Login e cadastro de usuários
+
+Dashboard - visualização de saldo, não pode ser negativo
+
+Transações - Depósitos, saques e transferências entre usuários
+
+Extrato - Histórico de movimentações com filtros por data
