@@ -14,7 +14,7 @@ export default function Transactions() {
     if (!value || numberValue <= 0) {
       setTypeMsg("error");
       setMessage("Digite um valor válido");
-      setTimeout(() => setMessage(""), 2000);
+      setTimeout(() => setMessage(""), 5000);
       return;
     }
 
