@@ -8,7 +8,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   function handleLogin() {
-    login(name);
+    if (!name.trim()) return;
+    login(name.trim());
     navigate("/home");
   }
 
@@ -16,13 +17,16 @@ export default function Login() {
     <div className="center">
       <h1>DevBank</h1>
 
-      <input
-        type="text"
-        placeholder="Seu nome"
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <button onClick={handleLogin}>Entrar</button>
+      {}
+      <div className="form-box">
+        <input
+          type="text"
+          placeholder="Seu nome"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button onClick={handleLogin}>Entrar</button>
+      </div>
     </div>
   );
 }
