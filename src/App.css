@@ -5,55 +5,60 @@
 }
 
 body {
-  background-color: #0f172a;
+  background: radial-gradient(circle at top, #1e1b4b, #020617);
   font-family: "Segoe UI", Roboto, sans-serif;
   color: #e5e7eb;
   min-height: 100vh;
 }
 
 .navbar {
-  background-color: #111827;
-  border-bottom: 1px solid #1f2937;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
   padding: 1rem 2rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .navbar-text {
   font-weight: 700;
-  color: #8b5cf6;
-  font-size: 1.3rem;
+  color: #a78bfa;
+  font-size: 1.4rem;
 }
 
 .navbar-buttons {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 1.2rem;
 }
 
 .navbar-buttons a {
   text-decoration: none;
   color: #9ca3af;
   font-weight: 500;
+  position: relative;
   transition: 0.2s;
 }
 
 .navbar-buttons a:hover {
-  color: #8b5cf6;
+  color: #c4b5fd;
 }
 
 .container {
   padding: 2rem;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 h1 {
   margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .grid {
@@ -66,33 +71,50 @@ h1 {
 }
 
 .card {
-  background: #111827;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(12px);
+
   padding: 1.8rem;
-  border-radius: 12px;
-  border: 1px solid #1f2937;
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
+
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .card h2 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #9ca3af;
 }
 
 .card p {
-  font-size: 1.8rem;
-  color: #8b5cf6;
+  font-size: 2rem;
+  color: #a78bfa;
+  font-weight: bold;
 }
 
 .form-box {
-  background: #111827;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(10px);
+
   padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid #1f2937;
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
   width: 100%;
   max-width: 400px;
+
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -101,49 +123,46 @@ h1 {
 input {
   padding: 0.75rem;
   width: 100%;
-  background-color: #1f2937;
+  background-color: #020617;
   border: 1px solid #374151;
   color: #e5e7eb;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
   outline: none;
   transition: 0.2s;
 }
 
-input::placeholder {
-  color: #6b7280;
-}
-
 input:focus {
   border-color: #8b5cf6;
-  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
 }
 
 .buttons {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 button {
   flex: 1;
   padding: 0.75rem 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+
   background: linear-gradient(135deg, #8b5cf6, #6366f1);
   color: white;
-  font-weight: 500;
+  font-weight: 600;
+
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 button:hover {
+  transform: translateY(-2px);
   filter: brightness(1.1);
-  transform: translateY(-1px);
 }
 
 button:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
 .center {
@@ -152,38 +171,51 @@ button:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1rem;
+  gap: 2rem;
 }
 
 .center h1 {
-  color: #8b5cf6;
-  font-size: 2rem;
-  text-align: center;
+  color: #a78bfa;
+  font-size: 2.5rem;
 }
 
 .transaction {
-  background: #111827;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(10px);
+
   margin-top: 1rem;
   padding: 1rem 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #1f2937;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   transition: 0.2s;
 }
 
 .transaction:hover {
-  transform: translateX(4px);
+  transform: translateX(6px) scale(1.01);
+}
+
+.transaction.deposit {
+  border-left: 4px solid #22c55e;
+}
+
+.transaction.withdraw {
+  border-left: 4px solid #ef4444;
 }
 
 .transaction.deposit p:last-child {
   color: #22c55e;
+  font-weight: bold;
 }
 
 .transaction.withdraw p:last-child {
   color: #ef4444;
+  font-weight: bold;
 }
 
 .message {
@@ -221,11 +253,4 @@ button:active {
   align-items: flex-start;
   min-height: calc(100vh - 80px);
   width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.container.centered .form-box {
-  width: 100%;
-  max-width: 400px;
 }

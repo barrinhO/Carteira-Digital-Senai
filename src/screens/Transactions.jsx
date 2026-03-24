@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { BankContext } from "../context/BankContext";
 import Navbar from "../components/Navbar";
+import { formatarMoeda } from "../utils/format";
 
 export default function Transactions() {
   const [value, setValue] = useState("");
@@ -11,10 +12,11 @@ export default function Transactions() {
 
   function handle(type) {
     const numberValue = Number(value);
+
     if (!value || numberValue <= 0) {
       setTypeMsg("error");
       setMessage("Digite um valor válido");
-      setTimeout(() => setMessage(""), 5000);
+      setTimeout(() => setMessage(""), 3000);
       return;
     }
 
@@ -23,8 +25,8 @@ export default function Transactions() {
     setTypeMsg("success");
     setMessage(
       type === "deposit"
-        ? `R$ ${numberValue} depositado com sucesso`
-        : `R$ ${numberValue} sacado com sucesso`,
+        ? `${formatarMoeda(numberValue)} depositado com sucesso`
+        : `${formatarMoeda(numberValue)} sacado com sucesso`,
     );
 
     setValue("");
@@ -35,7 +37,6 @@ export default function Transactions() {
     <>
       <Navbar />
 
-      {}
       <div className="container centered">
         <div className="form-box">
           <h1>Transações</h1>
@@ -44,10 +45,7 @@ export default function Transactions() {
             type="number"
             placeholder="Valor"
             value={value}
-            onChange={(e) => {
-              const val = e.target.value;
-              if (/^\d*$/.test(val)) setValue(val);
-            }}
+            onChange={(e) => setValue(e.target.value)}
           />
 
           <div className="buttons">

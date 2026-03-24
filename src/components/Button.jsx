@@ -1,9 +1,3 @@
-import "../App.css";
-
 export default function Button(props) {
-  return (
-    <>
-      <button type="text">{props.buttonText}</button>
-    </>
-  );
+  return <button type="button">{props.buttonText}</button>;
 }

@@ -5,7 +5,7 @@ export const BankContext = createContext();
 export function BankProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  const [balance, setBalance] = useState(1000);
+  const [balance, setBalance] = useState(650);
 
   const [transactions, setTransactions] = useState([]);
 

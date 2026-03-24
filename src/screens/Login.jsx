@@ -8,7 +8,11 @@ export default function Login() {
   const navigate = useNavigate();
 
   function handleLogin() {
-    if (!name.trim()) return;
+    if (!name.trim()) {
+      alert("Digite seu nome");
+      return;
+    }
+
     login(name.trim());
     navigate("/home");
   }
