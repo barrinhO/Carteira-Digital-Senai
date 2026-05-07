@@ -10,6 +10,19 @@ export default function Transactions() {
 
   const { addTransaction } = useContext(BankContext);
 
+  function addNumber(num) {
+    if (value.length >= 10) return;
+    setValue((prev) => prev + num);
+  }
+
+  function clearValue() {
+    setValue("");
+  }
+
+  function removeLast() {
+    setValue((prev) => prev.slice(0, -1));
+  }
+
   function handle(type) {
     const numberValue = Number(value);
 
@@ -30,6 +43,7 @@ export default function Transactions() {
     );
 
     setValue("");
+
     setTimeout(() => setMessage(""), 3000);
   }
 
@@ -38,19 +52,39 @@ export default function Transactions() {
       <Navbar />
 
       <div className="container centered">
-        <div className="form-box">
+        <div className="atm-box">
           <h1>Transações</h1>
 
-          <input
-            type="number"
-            placeholder="Valor"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
+          <div className="display">{value ? formatarMoeda(Number(value)) : "R$ 0,00"}</div>
+
+          <div className="keypad">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+              <button key={num} className="key" onClick={() => addNumber(num.toString())}>
+                {num}
+              </button>
+            ))}
+
+            <button className="key action" onClick={clearValue}>
+              C
+            </button>
+
+            <button className="key" onClick={() => addNumber("0")}>
+              0
+            </button>
+
+            <button className="key action" onClick={removeLast}>
+              ⌫
+            </button>
+          </div>
 
           <div className="buttons">
-            <button onClick={() => handle("deposit")}>Depositar</button>
-            <button onClick={() => handle("withdraw")}>Sacar</button>
+            <button className="deposit" onClick={() => handle("deposit")}>
+              Depositar
+            </button>
+
+            <button className="withdraw" onClick={() => handle("withdraw")}>
+              Sacar
+            </button>
           </div>
 
           {message && (

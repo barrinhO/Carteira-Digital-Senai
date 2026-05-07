@@ -366,3 +366,118 @@ input {
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+
+.container.centered {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.atm-box {
+  width: 100%;
+  max-width: 380px;
+  background: #111827;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.atm-box h1 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.display {
+  background: #1e293b;
+  color: #00ff88;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  text-align: right;
+  overflow-x: auto;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.key {
+  height: 70px;
+  border: none;
+  border-radius: 18px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #1e293b;
+  color: white;
+  transition: 0.2s;
+}
+
+.key:hover {
+  background: #334155;
+  transform: scale(1.05);
+}
+
+.key:active {
+  transform: scale(0.95);
+}
+
+.action {
+  background: #ef4444;
+}
+
+.action:hover {
+  background: #dc2626;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.withdraw {
+  background: #3b82f6;
+  color: white;
+}
+
+.withdraw:hover {
+  background: #2563eb;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.message.success {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+
+.message.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
